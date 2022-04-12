@@ -17,11 +17,12 @@ test.afterAll(async () => {
 });
 
 
-test('Test Upload for an Image', async ({page}) => {
+test('Test Upload for an Image', async ({page, request}) => {
     const uploadFile = new UploadingPage(page);
     // await page.pause();
     await uploadFile.uploadImage();
     await uploadFile.checksUploadedImage();
-    // const issues = await request.get(`/repos/${USER}/${REPO}/issues`);
-    // console.log(issues);
+    const apiRequest = await request.get('https://reqres.in/api/users/2');
+    console.log(await apiRequest.json());
+
 });

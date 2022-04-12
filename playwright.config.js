@@ -15,7 +15,7 @@ const { devices } = require('@playwright/test');
 const config = {
   testDir: './tests',
   /* Maximum time one test can run for. */
-  
+  // globalSetup: require.resolve('./global-setup'),
   timeout: 30 * 1000,
   expect: {
     /**
@@ -47,6 +47,7 @@ const config = {
     video: 'on-first-retry',
     screenshot: 'only-on-failure',
     acceptDownloads: true,
+    // storageState: 'storageState.json',
   },
 
   /* Configure projects for major browsers */
