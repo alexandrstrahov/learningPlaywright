@@ -19,7 +19,7 @@ test.afterAll(async () => {
 
 test('Test Upload for an Image', async ({page, request}) => {
     const uploadFile = new UploadingPage(page);
-    // await page.pause();
+    await page.pause();
     await uploadFile.uploadImage();
     await uploadFile.checksUploadedImage();
     const apiRequest = await request.get('https://reqres.in/api/users/2');
