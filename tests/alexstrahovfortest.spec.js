@@ -16,21 +16,21 @@ test.afterAll(async () => {
   console.log('Finished');
 });
 
-// test('First Test', async ({page}) => {
-//     const fillSearch = new MainPage(page);
-//     await fillSearch.searching();
-//     await fillSearch.checkResult();
-// });
+test('Search Nike products', async ({page}) => {
+    const fillSearch = new MainPage(page);
+    await fillSearch.searching();
+    await fillSearch.checkResult();
+});
 
-// test('Second Test', async ({page}) => {
-//     const visitSignIn = new MainPage(page);
-//     const checkSignIn = new SignIn(page);
-//     await visitSignIn.gotoSignIn();
-//     await checkSignIn.clickSubmit();
-//     await checkSignIn.checkHints();
-// });
+test('Check hints on Sign In page', async ({page}) => {
+    const visitSignIn = new MainPage(page);
+    const checkSignIn = new SignIn(page);
+    await visitSignIn.gotoSignIn();
+    await checkSignIn.clickSubmit();
+    await checkSignIn.checkHints();
+});
 
-test('Third Test', async ({page}) => {
+test('Check Sign In', async ({page}) => {
     const visitSignIn = new MainPage(page);
     const checkSignIn = new SignIn(page);
     await visitSignIn.gotoSignIn();
