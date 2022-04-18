@@ -30,12 +30,12 @@ test('Check hints on Sign In page', async ({page}) => {
     await checkSignIn.checkHints();
 });
 
-test('Check Sign In', async ({page}) => {
-    const visitSignIn = new MainPage(page);
-    const checkSignIn = new SignIn(page);
-    await visitSignIn.gotoSignIn();
-    await checkSignIn.fillCredentials();
-    await checkSignIn.clickSubmit();
-    await checkSignIn.checkLogin();
+// test('Check Sign In', async ({page}) => {
+//     const visitSignIn = new MainPage(page);
+//     const checkSignIn = new SignIn(page);
+//     await visitSignIn.gotoSignIn();
+//     await checkSignIn.fillCredentials();
+//     await checkSignIn.clickSubmit();
+//     await checkSignIn.checkLogin();
     // await page.context().storageState({ path: 'storageState.json' });
 });
