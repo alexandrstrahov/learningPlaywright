@@ -38,4 +38,4 @@ test('Check hints on Sign In page', async ({page}) => {
 //     await checkSignIn.clickSubmit();
 //     await checkSignIn.checkLogin();
     // await page.context().storageState({ path: 'storageState.json' });
-});
+// });
