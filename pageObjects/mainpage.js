@@ -4,11 +4,11 @@ exports.MainPage = class MainPage {
 
   constructor(page) {
     this.page = page;
-    this.search = page.locator('xpath=//*[@id="chrome-search"]');
-    this.searchResult = page.locator('xpath=//*[@class="vp-JnyG"]');
-    this.result = page.locator('xpath=//*[@data-auto-id="productList"]');
-    this.accountBtn = page.locator('xpath=//*[@type="accountUnfilled"]')
-    this.signInBtn = page.locator('xpath=//*[@data-testid="signin-link"]');
+    this.search = page.locator('[id="chrome-search"]');
+    this.searchResult = page.locator('[class="vp-JnyG"]');
+    this.result = page.locator('[data-auto-id="productList"]');
+    this.accountBtn = page.locator('[data-testid="myAccountIcon"]')
+    this.signInBtn = page.locator('[data-testid="signin-link"]');
   }
 
   async searching() {
