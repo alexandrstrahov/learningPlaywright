@@ -16,7 +16,8 @@ jobs:
 
       - run:
           name: Run tests
-          command: npx playwright test
+          # command: npx playwright test
+          command: npx playwright test --project=chromium
 
       - store_test_results:
           path: results.xml
