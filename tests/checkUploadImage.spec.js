@@ -22,7 +22,7 @@ test('Test Upload for an Image', async ({page, request}) => {
     // await page.pause();
     await uploadFile.uploadImage();
     await uploadFile.checksUploadedImage();
-    const apiRequest = await request.get('https://reqres.in/api/users/2');
-    console.log(await apiRequest.json());
+    // const apiRequest = await request.get('https://reqres.in/api/users/2');
+    // console.log(await apiRequest.json());
 
 });
