@@ -1,10 +1,10 @@
 const { expect, request } = require('@playwright/test');
-const { click } = require('../support/helpers.js');
-const { upload } = require('../support/helpers.js');
+const {  MainClass } = require('./mainPage.js');
 
-exports.UploadingPage = class UploadingPage {
+exports.UploadingPage = class UploadingPage extends MainClass {
 
     constructor(page) {
+      super(page); 
       this.page = page;
       this.selectImages = page.locator('#upload')
       this.uploadButton = page.locator('[type="submit"]')
@@ -12,10 +12,8 @@ exports.UploadingPage = class UploadingPage {
     }
 
    async uploadImage() {
-      await upload(this.page, this.selectImages);
-      await click(this.uploadButton);
-      // await this.page.waitForLoadState();
-      // await expect (this.checkUploadedImage).toBeVisible();
+      await this.upload(this.selectImages);
+      await this.click(this.uploadButton);
    }
 
    async checksUploadedImage() {

@@ -1,8 +1,11 @@
 const { expect } = require('@playwright/test');
+const {  MainClass } = require('./mainPage.js');
+const { email, password } = require('../dataForTests/testData.js');
 
-exports.SignIn = class SignIn {
+exports.SignInPage = class SignInPage extends MainClass {
 
   constructor(page) {
+    super(page);
     this.page = page;
     this.submitBtn = page.locator('[id="signin"]')
     this.emailHint = page.locator('[id="EmailAddress-error"]');
@@ -10,12 +13,16 @@ exports.SignIn = class SignIn {
     this.email = page.locator('[name="Username"]');
     this.password = page.locator('[id="Password"]')
     this.loggedin = page.locator('[id="LoggedIn"]')
+    this.signOutBtn = page.locator('[data-testid="signout-link"]')
   }
 
   async clickSubmit() {
     await expect (this.submitBtn).toBeVisible();
     await expect (this.submitBtn).toBeEnabled();
-    await this.submitBtn.click();
+    await this.click(this.submitBtn)
+  }
+  async visitSignInPage() {
+    await super.gotoSignIn();
   }
 
   async checkHints() {
@@ -24,12 +31,13 @@ exports.SignIn = class SignIn {
   }
 
   async fillCredentials() {
-    await this.email.fill('leedoe@gmail.com');
-    await this.password.fill('Password1!');
+    await this.email.fill(email);
+    await this.password.fill(password);
   }
 
   async checkLogin() {
-    await expect (this.loggedin).toBeVisible();
+    await super.click(this.accountBtn)
+    await expect (this.signOutBtn).toBeVisible();
   }
 
 }
