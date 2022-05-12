@@ -32,11 +32,11 @@ test('Check hints on Sign In page', async ({page}) => {
     await visitSignIn.checkHints();
 });
 
-test('Check Sign In', async ({page}) => {
-    const visitSignIn = new  SignInPage(page);
-//     // await page.pause();
-    await visitSignIn.visitSignInPage();
-    await visitSignIn.fillCredentials();
-    await visitSignIn.clickSubmit();
-    await visitSignIn.checkLogin();
-});
+// test('Check Sign In', async ({page}) => {
+//     const visitSignIn = new  SignInPage(page);
+// //     // await page.pause();
+//     await visitSignIn.visitSignInPage();
+//     await visitSignIn.fillCredentials();
+//     await visitSignIn.clickSubmit();
+//     await visitSignIn.checkLogin();
+// });
