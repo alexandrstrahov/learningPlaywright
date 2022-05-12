@@ -34,6 +34,6 @@ exports.MainClass = class MainClass {
     // await fileChooser.setFiles('/Users/alnksandrstrahov/Documents/autotests_lesson/dataForTests/19.png');
     await fileChooser.setFiles(file);
   }
-  sosi 
+  
  }
  
