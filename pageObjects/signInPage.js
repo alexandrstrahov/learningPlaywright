@@ -1,6 +1,6 @@
 const { expect } = require('@playwright/test');
 const {  MainClass } = require('./mainPage.js');
-const { email, password } = require('../dataForTests/testData.js');
+
 
 exports.SignInPage = class SignInPage extends MainClass {
 
@@ -30,7 +30,7 @@ exports.SignInPage = class SignInPage extends MainClass {
     await expect (this.passwordHint).toBeVisible();
   }
 
-  async fillCredentials() {
+  async fillCredentials(email, password) {
     await this.email.fill(email);
     await this.password.fill(password);
   }

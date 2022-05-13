@@ -1,6 +1,6 @@
 const { expect } = require('@playwright/test');
 const {  MainClass } = require('./mainPage.js');
-const { searchData, searchResultData } = require('../dataForTests/testData.js');
+
 
 exports.SearchNike = class SearchNike extends MainClass {
   
@@ -10,10 +10,9 @@ exports.SearchNike = class SearchNike extends MainClass {
     this.result = page.locator('[data-auto-id="productList"]');
     }
 
-   async checkResult() {
+   async checkResult(searchData, searchResultData) {
         await expect (this.searchResult).toContainText(searchData);
         await expect (this.result).toContainText(searchResultData);
-        // await super.searching();
       }
     
 }

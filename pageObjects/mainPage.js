@@ -1,5 +1,4 @@
 const { expect } = require('@playwright/test');
-const { searchResultData } = require('../dataForTests/testData.js');
 
 exports.MainClass = class MainClass {
   constructor(page) {
@@ -8,7 +7,7 @@ exports.MainClass = class MainClass {
     this.accountBtn = page.locator('[data-testid="myAccountIcon"]')
     this.signInBtn = page.locator('[data-testid="signin-link"]');
   } 
-  async searching() {
+  async searching(searchResultData) {
     await this.search.fill(searchResultData);
     await this.page.keyboard.press('Enter');
   }

@@ -1,5 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const { UploadingPage } = require('../pageObjects/uploadPage.js');
+const { file } = require('../dataForTests/testData.js');
 
 
 test.beforeAll(async () => {
@@ -17,10 +18,10 @@ test.afterAll(async () => {
 });
 
 
-test('Test Upload for an Image', async ({page, request}) => {
+test('Test Upload for an Image', async ({page}) => {
     const uploadFile = new UploadingPage(page);
     // await page.pause();
-    await uploadFile.uploadImage();
+    await uploadFile.uploadImage(file);
     await uploadFile.checksUploadedImage();
     // const apiRequest = await request.get('https://reqres.in/api/users/2');
     // console.log(await apiRequest.json());
