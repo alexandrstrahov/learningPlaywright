@@ -1,6 +1,6 @@
 import { expect, Locator, Page } from '@playwright/test';
-import {testData} from '../dataForTests/testData';
-import {  MainClass } from './mainPage';
+import { testData } from '../dataForTests/testData';
+import { MainClass } from './mainPage';
 
 export class SignInPage extends MainClass {
   readonly page: Page;

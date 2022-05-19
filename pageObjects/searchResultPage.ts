@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
-import {testData} from '../dataForTests/testData';
+import { testData } from '../dataForTests/testData';
 import {  MainClass } from './mainPage';
 
 export class SearchNike extends MainClass {

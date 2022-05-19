@@ -1,5 +1,5 @@
-import { expect, Locator, Page } from '@playwright/test';
-import {testData} from '../dataForTests/testData';
+import { Locator, Page } from '@playwright/test';
+import { testData } from '../dataForTests/testData';
 
 export class MainClass {
   readonly page: Page;
@@ -15,7 +15,7 @@ export class MainClass {
     this.signInBtn = page.locator('[data-testid="signin-link"]');
     this.searchBtn = page.locator('[data-testid="search-button-inline"]')
   } 
-  
+
   async searching(searchResultData) {
     await this.search.fill(searchResultData);
     await this.click(this.searchBtn);

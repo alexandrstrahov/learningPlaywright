@@ -1,6 +1,5 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import { UploadingPage } from '../pageObjects/uploadPage';
-import {testData} from '../dataForTests/testData';
 
 
 test.beforeAll(async () => {

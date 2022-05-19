@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import {testData} from '../dataForTests/testData';
 import { SignInPage } from '../pageObjects/signInPage';
 import { SearchNike } from '../pageObjects/searchResultPage';
