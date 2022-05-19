@@ -1,15 +1,24 @@
-const { expect } = require('@playwright/test');
+import { expect, Locator, Page } from '@playwright/test';
+import {testData} from '../dataForTests/testData';
 
-exports.MainClass = class MainClass {
-  constructor(page) {
+export class MainClass {
+  readonly page: Page;
+  readonly search: Locator;
+  readonly accountBtn: Locator;
+  readonly signInBtn: Locator;
+  readonly searchBtn: Locator;
+
+  constructor(page: Page) {
     this.page = page;
     this.search = page.locator('[id="chrome-search"]');
     this.accountBtn = page.locator('[data-testid="myAccountIcon"]')
     this.signInBtn = page.locator('[data-testid="signin-link"]');
+    this.searchBtn = page.locator('[data-testid="search-button-inline"]')
   } 
+  
   async searching(searchResultData) {
     await this.search.fill(searchResultData);
-    await this.page.keyboard.press('Enter');
+    await this.click(this.searchBtn);
   }
 
   async gotoSignIn() {
@@ -31,7 +40,7 @@ exports.MainClass = class MainClass {
       await locator.click()
     ]);
     // await fileChooser.setFiles('/Users/alnksandrstrahov/Documents/autotests_lesson/dataForTests/19.png');
-    await fileChooser.setFiles(file);
+    await fileChooser.setFiles(testData.file);
   }
   
  }

@@ -12,7 +12,8 @@ const { devices } = require('@playwright/test');
  * @see https://playwright.dev/docs/test-configuration
  * @type {import('@playwright/test').PlaywrightTestConfig}
  */
-const config = {
+ import { PlaywrightTestConfig } from '@playwright/test';
+ const config: PlaywrightTestConfig = {
   testDir: './tests',
   /* Maximum time one test can run for. */
   // globalSetup: require.resolve('./global-setup'),
@@ -111,5 +112,4 @@ const config = {
   //   port: 3000,
   // },
 };
-
-module.exports = config;
+export default config;

@@ -1,9 +1,13 @@
-const { expect, request } = require('@playwright/test');
-const {  MainClass } = require('./mainPage.js');
+import { expect, Locator, Page } from '@playwright/test';
+import {  MainClass } from './mainPage';
 
-exports.UploadingPage = class UploadingPage extends MainClass {
-
-    constructor(page) {
+export class UploadingPage extends MainClass {
+   readonly page: Page;
+   readonly selectImages: Locator;
+   readonly uploadButton: Locator;
+   readonly checkUploadedImage: Locator;
+   
+    constructor(page: Page) {
       super(page); 
       this.page = page;
       this.selectImages = page.locator('#upload')

@@ -1,9 +1,7 @@
-const { test, expect } = require('@playwright/test');
-const { email, password } = require('../dataForTests/testData.js');
-const { searchData, searchResultData } = require('../dataForTests/testData.js');
-const { SearchNike } = require('../pageObjects/searchResultPage.js');
-const { SignInPage } = require('../pageObjects/signInPage.js');
-
+import { test, expect } from '@playwright/test';
+import {testData} from '../dataForTests/testData';
+import { SignInPage } from '../pageObjects/signInPage';
+import { SearchNike } from '../pageObjects/searchResultPage';
 
 test.beforeAll(async () => {
     console.log('Here we go' );
@@ -22,8 +20,8 @@ test.afterAll(async () => {
 test('Search Nike products', async ({page}) => {
     const fillSearch = new SearchNike(page);
     // await page.pause();
-    await fillSearch.searching(searchData);
-    await fillSearch.checkResult(searchData, searchResultData);
+    await fillSearch.searching(testData.searchData);
+    await fillSearch.checkResult();
 });
 
 test('Check hints on Sign In page', async ({page}) => {
@@ -38,7 +36,7 @@ test('Check hints on Sign In page', async ({page}) => {
 //     const visitSignIn = new  SignInPage(page);
 //     await page.pause();
 //     await visitSignIn.visitSignInPage();
-//     await visitSignIn.fillCredentials(email, password);
+//     await visitSignIn.fillCredentials(testData.email, testData.password);
 //     await visitSignIn.clickSubmit();
 //     await visitSignIn.checkLogin();
 // });

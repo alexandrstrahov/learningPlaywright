@@ -1,10 +1,18 @@
-const { expect } = require('@playwright/test');
-const {  MainClass } = require('./mainPage.js');
+import { expect, Locator, Page } from '@playwright/test';
+import {testData} from '../dataForTests/testData';
+import {  MainClass } from './mainPage';
 
+export class SignInPage extends MainClass {
+  readonly page: Page;
+  readonly submitBtn: Locator;
+  readonly emailHint: Locator;
+  readonly passwordHint: Locator;
+  readonly email: Locator;
+  readonly password: Locator;
+  readonly loggedin: Locator;
+  readonly signOutBtn: Locator;
 
-exports.SignInPage = class SignInPage extends MainClass {
-
-  constructor(page) {
+  constructor(page: Page) {
     super(page);
     this.page = page;
     this.submitBtn = page.locator('[id="signin"]')
@@ -31,8 +39,8 @@ exports.SignInPage = class SignInPage extends MainClass {
   }
 
   async fillCredentials(email, password) {
-    await this.email.fill(email);
-    await this.password.fill(password);
+    await this.email.fill(testData.email);
+    await this.password.fill(testData.password);
   }
 
   async checkLogin() {
